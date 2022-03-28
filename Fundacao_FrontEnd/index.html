@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundações</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" /> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.8/jquery.mask.min.js"></script>
+    <script>
+          $(document).ready(function(){
+                $('#cnpj').mask('00.000.000/0000-00');
+                $('#telefone').mask('(00) 00000-0000');
+                getFundacoes();
+   });
+    </script>
+  </head>
+  <body class="align-center">
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light"
+      > 
+        <a class="navbar-brand" href="#">
+          <label >Fundações</label>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" id="show-or-hide" href="#consultar" onclick="mudarEstado('consultar')">Consultar</a>
+            <a class="nav-item nav-link" href="#cadastrar" onclick="mudarEstado('cadastrar')">Cadastrar</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="consultar" style="display: block;">
+        <div class="text-center">            
+            <h2>Fundações</h2>            
+        </div>
+         
+          <div class="row d-flex justify-content-center" >
+            <div class="col-md-10">
+              <table id="fundacoesTable" class="table table-bordered table-condensed table-striped">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>CNPJ</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Instituição de Apoio</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                  </tr>           
+                </thead>
+            </table>
+            <div id="tableNull" class="text-center" style="display: none;" >
+                Nenhum dado encontrado.
+            </div>
+            </div>
+          </div>
+    </div>
+    
+  
+    <div id="cadastrar" style="display: none;">
+      
+      <div class="text-center">            
+            <h2>Cadastros</h2>            
+      </div>
+      
+      <div class="row d-flex justify-content-center">
+            <div class="col-md-10">
+                <form name="formCadastro" method="post">
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input type="number" name="id" id="id" placeholder="-1" class="form-control" disabled="">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="Exemple" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" id="email" placeholder="exemple@exemple.com" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" name="telefone" id="telefone" placeholder="(xx)xxxxx-xxxx" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Instituição de Apoio</label>
+                        <input type="text" name="instituicao" id="instituicao" placeholder="Exemple" class="form-control" required>
+                    </div>
+
+                    <input type="button" id="btnAdicionar" class="btn btn-success" value="Salvar" onclick="addOrUpdate()">
+
+            </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

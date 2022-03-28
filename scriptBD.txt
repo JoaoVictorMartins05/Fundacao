@@ -1,0 +1,12 @@
+CREATE TABLE Fundacao (
+    Id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Nome varchar(400) NOT NULL,
+    CNPJ varchar(18) NOT NULL,
+    Email varchar(150) NOT NULL,
+	Telefone varchar(15) NOT NULL,
+	InstituicaoDeApoio varchar(400),
+);
+
+insert into Fundacao (Nome, CNPJ, Email, Telefone, InstituicaoDeApoio) values ('Além Paraíba','88.614.090/0001-51', 'além@paraiba.com', '32999072991', 'Instituto Federal de Rio Pomba')
+insert into Fundacao (Nome, CNPJ, Email, Telefone, InstituicaoDeApoio) values ('Viçosa','81.614.090/0001-51', 'a@a.com', '32999072991', 'Instituto Federal de Rio Pomba')
+
